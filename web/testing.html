@@ -1,0 +1,117 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Library List</title>
+    
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .sort-links {
+            margin: 20px 0;
+        }
+        .sort-links a {
+            text-decoration: none;
+            margin: 0 10px;
+            color: #333;
+            font-weight: bold;
+        }
+        .sort-links a:hover {
+            color: #4CAF50;
+        }
+        .home-btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .home-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Music Library</h1>
+    <p>You currently have <b>${musics.size()}</b> Music items in your collection.</p>
+
+    <!-- Sort links section -->
+    <div class="sort-links">
+        <p>Sort by: 
+            <a href="?sort=year&sortOrder=${param.sortOrder == 'asc' ? 'desc' : 'asc'}">Year</a> | 
+            <a href="?sort=artist&sortOrder=${param.sortOrder == 'asc' ? 'desc' : 'asc'}">Artist</a> | 
+            <a href="?sort=default">Default</a>
+        </p>
+    </div>
+
+    <!-- Music Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th>Artist</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamically render rows -->
+            <c:forEach var="item" items="${musics}">
+                <tr>
+                    <td>${item.title}</td>
+                    <td>${item.genre}</td>
+                    <td>${item.year}</td>
+                    <td>${item.artist}</td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+
+    <!-- Home Button -->
+    <a href="index.html" class="home-btn">Return Home</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+
+    <!-- Servlet Definitions -->
+    <servlet>
+        <servlet-name>ListLibraryServlet</servlet-name>
+        <servlet-class>com.music.view.ListLibraryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddMusicServlet1</servlet-name>
+        <servlet-class>AddMusicServlet1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListMusicServlet1</servlet-name>
+        <servlet-class>ListMusicServlet1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet1</servlet-name>
+        <servlet-class>LoginServlet1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditMusicServlet1</servlet-name>
+        <servlet-class>EditMusicServlet1</servlet-class>
+    </servlet>
+
+    <!-- Servlet Mappings -->
+    <servlet-mapping>
+        <servlet-name>ListLibraryServlet</servlet-name>
+        <url-pattern>/list_library.view</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddMusicServlet1</servlet-name>
+        <url-pattern>/AddMusicServlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListMusicServlet1</servlet-name>
+        <url-pattern>/ListMusicServlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet1</servlet-name>
+        <url-pattern>/LoginServlet1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditMusicServlet1</servlet-name>
+        <url-pattern>/EditMusicServlet1</url-pattern>
+    </servlet-mapping>
+
+    <!-- Session Configuration -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+</web-app>
