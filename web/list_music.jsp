@@ -12,6 +12,9 @@
     </head>
     <body>
         <h1>Music Library</h1>
+        <c:if test =" ${param.forwarded eq 'true'}">
+            <p> No music found for the given search. </p>
+        </c:if>
         <% 
             // Check if the user is logged in by verifying the session
             if (session == null || session.getAttribute("username") == null) {
@@ -71,7 +74,14 @@
                     if (conn != null) conn.close();
                 }
             %>
+            <%
+                String error = request.getParameter("error");
+                if(error != null){
+                    out.println("<p style='color:red;'>" +error + "</p>");
+                }
+            %>
         </table>
         <a href="add_music.jsp">Add New Music</a>
+        <a href="logout.jsp">Logout</a>
     </body>
 </html>
